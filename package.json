@@ -1,0 +1,36 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "node js app to make a html page displaying members of a dev team",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjistealth/team_profile_generator.git"
+  },
+  "keywords": [
+    "jest",
+    "npm",
+    "css",
+    "html",
+    "node",
+    "inquirer",
+    "fs"
+  ],
+  "author": "benjistealth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjistealth/team_profile_generator/issues"
+  },
+  "homepage": "https://github.com/benjistealth/team_profile_generator#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^6.5.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
