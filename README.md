@@ -18,7 +18,7 @@
 
 ## Description
 
-- A node.js application that takes user input and generates an HTNL page describing the team entered at the terminal prompt.
+- A node.js application that takes user input and generates an HTML page describing the team entered at the terminal prompt.
 
 ## Demo
 
