@@ -54,7 +54,6 @@ const promptForNextEmployee = () => {
             ]
         }
     ]).then(response => {
-        console.log(response);
         if (response.nextEmployee === "Engineer") { promptForEngineer() }
         else if (response.nextEmployee === "Intern") { promptForIntern() }
         else {
