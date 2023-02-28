@@ -62,15 +62,15 @@ const promptForNextEmployee = () => {
         console.log(response);
         if (response.nextEmployee === "Engineer") { promptForEngineer() }
         else if (response.nextEmployee === "Intern") { promptForIntern() }
-        //    use the functionality from page-template to generate the team
         else {
+            // check if the path exists and if it doesn't, create it
             // found on npm.js manual page
             // https://www.golinuxcloud.com/node-js-check-if-file-or-directory-exists/
             if (!fs.existsSync(OUTPUT_DIR)) {
               fs.mkdirSync(OUTPUT_DIR);
-            }
+            } // create the file with the team data rendered into html
             fs.writeFile(outputPath, render(teamArr), (err) =>
-              err ? console.log(err) : console.log("Team html page created!")
+              err ? console.log(err) : console.log("Team html page created!") // let the user know it was successful or log error
             );
         }; 
     })

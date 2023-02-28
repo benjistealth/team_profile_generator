@@ -22,16 +22,16 @@
 
 ## Demo
 
- - sample_team.html document download here - 
+ - `sample_team.html` document can be download here - https://drive.google.com/file/d/15I0B9Egw8F5T0_F-hHpRU01bzpzKl-03/view?usp=share_link
 
 
-## Screenshot of user entering project information
+## Screenshot of user entering team information
 
     
   <img alt="Screenshot_1" src="./assets/images/screenshot1.png">
 
 
-## Screenshot of the final markdown produced, please see the readme on this page for an example of the final article.
+## Screenshot of the final team.html produced, please see the [Demo](#demo) link on this page for an example of the final article.
 
 
   <img alt="Screenshot_2" src="./assets/images/screenshot2.png">
@@ -43,12 +43,12 @@
 
  - First clone the above repository
 
- - You need to have Node.js V16.18 installed to ensure compatability. To install necessary dependencies, run the following command: `npm install` which will install `Node.js` dependancies read from package.json.  You will also need to install Jest with `npm install jest --save-dev`
+ - You need to have Node.js V16.18 installed to ensure compatability. To install necessary dependencies, run the following command: `npm install` which will install `Node.js` dependancies read from package.json.
 
 
 ## Usage
 
-- Run the applicaiton by running `node index.js` from the root folder.  Answer the team questions and generate team.html
+- Run the applicaiton by running `node index.js` from the root folder.  Answer the cmdline questions and generate team.html
 
 
 ## Contribute
