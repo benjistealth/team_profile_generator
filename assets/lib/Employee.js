@@ -2,7 +2,6 @@
 class Employee {
     constructor(name, id, email) {
         this.name = name;
-
         // this.role = role;
         this.id = id;
         this.email = email;

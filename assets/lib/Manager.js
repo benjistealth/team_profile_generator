@@ -3,6 +3,7 @@ const Employee = require("./Employee");
 
 class Manager extends Employee {
     constructor(name, id, email, officeNumber, github) {
+
         super(name, id, email);
         this.officeNumber = officeNumber;
         this.github = github;
@@ -11,12 +12,7 @@ class Manager extends Employee {
         // getEmail = function () { return this.email; }
         this.getGithub = function () { return this.github; };
         this.getOfficeNumber = function () { return this.officeNumber; }
-        // most of these can be added as prototype functions of Employee
     };
-    // and other properties
 }
-
-
-const mgr1 = new Manager("Danish", "danish@gmail.gov", "danisheng");
 
 module.exports = Manager;
