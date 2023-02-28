@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./assets/src/page-template");
 
-const team = [];
+const teamArr = [];
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -42,7 +42,7 @@ inquirer.prompt([
     },
 ]).then(response => {
     // populate manager info
-    team.push(new Manager(response.name, response.id, response.officeNumber, response.email, response.github));
+    teamArr.push(new Manager(response.name, response.id, response.email, response.officeNumber, response.github));
     promptForNextEmployee();
 })
 
@@ -63,9 +63,19 @@ const promptForNextEmployee = () => {
         if (response.nextEmployee === "Engineer") { promptForEngineer() }
         else if (response.nextEmployee === "Intern") { promptForIntern() }
         //    use the functionality from page-template to generate the team
-        else if (response === "No more Team members to add. Generate Team Page") { generateTeam(team) }
+        else {
+            // found on npm.js manual page
+            // https://www.golinuxcloud.com/node-js-check-if-file-or-directory-exists/
+            if (!fs.existsSync(OUTPUT_DIR)) {
+              fs.mkdirSync(OUTPUT_DIR);
+            }
+            fs.writeFile(outputPath, render(teamArr), (err) =>
+              err ? console.log(err) : console.log("Team html page created!")
+            );
+        }; 
     })
 }
+
 
 const promptForEngineer = () => {
     inquirer.prompt([
@@ -92,7 +102,7 @@ const promptForEngineer = () => {
         },
     ]).then(response => {
         // add new engineer to employees array
-        team.push(new Engineer(response.name, response.id, response.email, response.github));
+        teamArr.push(new Engineer(response.name, response.id, response.email, response.github));
         // promptForNextEmployee
         promptForNextEmployee();
     })
@@ -128,7 +138,7 @@ const promptForIntern = () => {
         },
     ]).then(response => {
         // add new intern to employees array
-        team.push(new Intern(response.name, response.id, response.email, response.github));
+        teamArr.push(new Intern(response.name, response.id, response.email, response.school, response.github));
         // promptForNextEmployee
         promptForNextEmployee();
     })
