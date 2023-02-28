@@ -6,8 +6,11 @@ class Manager extends Employee {
         super(name, id, email, "Manager");
         this.officeNumber = officeNumber;
         this.github = github;
-        this.getRole = function () { return "Manager"; }
+        // this.getName = function () { return this.name; }
+        // this.getRole = function () { return "Manager"; }
+        // this.getEmail = function () { return this.email; }
         this.getOfficeNumber = function () { return this.officeNumber; }
+        // most of these can be added as prototype functions of Employee
     };
     // and other properties
 }
@@ -16,17 +19,3 @@ class Manager extends Employee {
 const mgr1 = new Manager("Danish", "danish@gmail.gov", "danisheng");
 
 module.exports = Manager;
-
-// * When a user starts the application then they are prompted to enter the **team manager**’s:
-// * Name
-// * Employee ID
-// * Email address
-// * Office number
-// * When a user enters those requirements then the user is presented with a menu with the option to:
-// * Add an engineer
-// * Add an intern 
-// * Finish building the team
-
-// * In addition to `Employee`'s properties and methods, `Manager` will also have the following:
-// * `officeNumber`
-// * `getRole()`&mdash;overridden to return `'Manager'`

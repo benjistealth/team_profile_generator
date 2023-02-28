@@ -12,12 +12,20 @@ class Employee {
     }
 }
 
+Employee.prototype.getEmail = function() {
+    email = this.email;
+  };
+  Employee.prototype.getName = function() {
+    name = this.name;
+  };
+  Employee.prototype.getId = function() {
+    id = this.id;
+  };
+  Employee.prototype.getRole = function() {
+    role = this.role;
+  };
+  
+
 module.exports = Employee;
 
-// * `name`
-// * `id`
-// * `email`
-// * `getName()`
-// * `getId()`
-// * `getEmail()`
-// * `getRole()`&mdash;returns `'Employee'`  
+
