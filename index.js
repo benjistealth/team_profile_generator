@@ -59,8 +59,9 @@ const promptForNextEmployee = () => {
             ]
         }
     ]).then(response => {
-        if (response === "engineer") { promptForEngineer() }
-        else if (response === "intern") { promptForIntern() }
+        console.log(response);
+        if (response.nextEmployee === "Engineer") { promptForEngineer() }
+        else if (response.nextEmployee === "Intern") { promptForIntern() }
         //    use the functionality from page-template to generate the team
         else if (response === "No more Team members to add. Generate Team Page") { generateTeam(team) }
     })
@@ -91,7 +92,9 @@ const promptForEngineer = () => {
         },
     ]).then(response => {
         // add new engineer to employees array
+        team.push(new Engineer(response.name, response.id, response.email, response.github));
         // promptForNextEmployee
+        promptForNextEmployee();
     })
 }
 
@@ -125,10 +128,9 @@ const promptForIntern = () => {
         },
     ]).then(response => {
         // add new intern to employees array
+        team.push(new Intern(response.name, response.id, response.email, response.github));
         // promptForNextEmployee
+        promptForNextEmployee();
     })
 }
 
-const buildPage = () => {
-
-}
