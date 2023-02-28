@@ -8,7 +8,7 @@ class Intern extends Employee {
         this.github = github;
         this.school = school;
         this.getGithub = function () { return this.github; };
-
+        this.getRole = function () { return "Intern"; };
         this.getSchool = function () { return this.school };
     }
 }
