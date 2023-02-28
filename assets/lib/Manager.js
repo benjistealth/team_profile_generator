@@ -6,11 +6,7 @@ class Manager extends Employee {
 
         super(name, id, email);
         this.officeNumber = officeNumber;
-        this.github = github;
-        // getName = function () { return this.name; }
         this.getRole = function () { return "Manager"; }
-        // getEmail = function () { return this.email; }
-        this.getGithub = function () { return this.github; };
         this.getOfficeNumber = function () { return this.officeNumber; }
     };
 }

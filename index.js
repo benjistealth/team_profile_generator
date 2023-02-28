@@ -35,11 +35,6 @@ inquirer.prompt([
         name: 'email',
         message: 'What is the Managers email?',
     },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is the Managers Github Username?',
-    },
 ]).then(response => {
     // populate manager info
     teamArr.push(new Manager(response.name, response.id, response.email, response.officeNumber, response.github));
@@ -130,11 +125,6 @@ const promptForIntern = () => {
             type: 'input',
             name: 'school',
             message: 'What is the Interns school?',
-        },
-        {
-            type: 'input',
-            name: 'github',
-            message: 'What is the Interns Github Username?',
         },
     ]).then(response => {
         // add new intern to employees array
