@@ -7,9 +7,9 @@ const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-const render = require("./src/page-template");
+const render = require("./assets/src/page-template");
 
-const employees = [];
+const team = [];
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -27,13 +27,13 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        name: 'email',
-        message: 'What is the Managers email?',
+        name: 'officeNumber',
+        message: 'What is the Managers office number?',
     },
     {
         type: 'input',
-        name: 'officeNumber',
-        message: 'What is the Managers office number?',
+        name: 'email',
+        message: 'What is the Managers email?',
     },
     {
         type: 'input',
@@ -42,7 +42,8 @@ inquirer.prompt([
     },
 ]).then(response => {
     // populate manager info
-    // promptForNexEMployee ()
+    team.push(new Manager(response.name, response.id, response.officeNumber, response.email, response.github));
+    promptForNextEmployee();
 })
 
 const promptForNextEmployee = () => {
@@ -61,7 +62,7 @@ const promptForNextEmployee = () => {
         if (response === "engineer") { promptForEngineer() }
         else if (response === "intern") { promptForIntern() }
         //    use the functionality from page-template to generate the team
-        else { generateTeam() }
+        else if (response === "No more Team members to add. Generate Team Page") { generateTeam(team) }
     })
 }
 

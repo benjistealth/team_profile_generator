@@ -3,12 +3,13 @@ const Employee = require("./Employee");
 
 class Manager extends Employee {
     constructor(name, id, email, officeNumber, github) {
-        super(name, id, email, "Manager");
+        super(name, id, email);
         this.officeNumber = officeNumber;
         this.github = github;
-        // this.getName = function () { return this.name; }
-        // this.getRole = function () { return "Manager"; }
-        // this.getEmail = function () { return this.email; }
+        // getName = function () { return this.name; }
+        this.getRole = function () { return "Manager"; }
+        // getEmail = function () { return this.email; }
+        this.getGithub = function () { return this.github; };
         this.getOfficeNumber = function () { return this.officeNumber; }
         // most of these can be added as prototype functions of Employee
     };
