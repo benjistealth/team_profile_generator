@@ -9,8 +9,6 @@ class Employee {
 
 module.exports = Employee;
 
-
-
 // * `name`
 // * `id`
 // * `email`
