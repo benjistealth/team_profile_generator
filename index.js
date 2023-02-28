@@ -7,9 +7,9 @@ const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-const render = require("./src/page-template");
+const render = require("./assets/src/page-template");
 
-const employees = [];
+const teamArr = [];
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -27,13 +27,13 @@ inquirer.prompt([
     },
     {
         type: 'input',
-        name: 'email',
-        message: 'What is the Managers email?',
+        name: 'officeNumber',
+        message: 'What is the Managers office number?',
     },
     {
         type: 'input',
-        name: 'officeNumber',
-        message: 'What is the Managers office number?',
+        name: 'email',
+        message: 'What is the Managers email?',
     },
     {
         type: 'input',
@@ -42,7 +42,8 @@ inquirer.prompt([
     },
 ]).then(response => {
     // populate manager info
-    // promptForNexEMployee ()
+    teamArr.push(new Manager(response.name, response.id, response.email, response.officeNumber, response.github));
+    promptForNextEmployee();
 })
 
 const promptForNextEmployee = () => {
@@ -58,12 +59,23 @@ const promptForNextEmployee = () => {
             ]
         }
     ]).then(response => {
-        if (response === "engineer") { promptForEngineer() }
-        else if (response === "intern") { promptForIntern() }
+        console.log(response);
+        if (response.nextEmployee === "Engineer") { promptForEngineer() }
+        else if (response.nextEmployee === "Intern") { promptForIntern() }
         //    use the functionality from page-template to generate the team
-        else { generateTeam() }
+        else {
+            // found on npm.js manual page
+            // https://www.golinuxcloud.com/node-js-check-if-file-or-directory-exists/
+            if (!fs.existsSync(OUTPUT_DIR)) {
+              fs.mkdirSync(OUTPUT_DIR);
+            }
+            fs.writeFile(outputPath, render(teamArr), (err) =>
+              err ? console.log(err) : console.log("Team html page created!")
+            );
+        }; 
     })
 }
+
 
 const promptForEngineer = () => {
     inquirer.prompt([
@@ -90,7 +102,9 @@ const promptForEngineer = () => {
         },
     ]).then(response => {
         // add new engineer to employees array
+        teamArr.push(new Engineer(response.name, response.id, response.email, response.github));
         // promptForNextEmployee
+        promptForNextEmployee();
     })
 }
 
@@ -124,10 +138,9 @@ const promptForIntern = () => {
         },
     ]).then(response => {
         // add new intern to employees array
+        teamArr.push(new Intern(response.name, response.id, response.email, response.school, response.github));
         // promptForNextEmployee
+        promptForNextEmployee();
     })
 }
 
-const buildPage = () => {
-
-}
