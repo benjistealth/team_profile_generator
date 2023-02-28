@@ -1,14 +1,17 @@
-// TODO: Write code to define and export the Manager class. HINT: This class should inherit from Employee.
 // TODO: Write code to define and export the Engineer class.  HINT: This class should inherit from Employee.
 const Employee = require("./Employee");
 
 class Manager extends Employee {
-    constructor(name, email, github) {
-        super(name, email, "Manager");
+    constructor(name, id, email, officeNumber, github) {
+        super(name, id, email, "Manager");
+        this.officeNumber = officeNumber;
         this.github = github;
-        // and other properties
-    }
+        this.getRole = function () { return "Manager"; }
+        this.getOfficeNumber = function () { return this.officeNumber; }
+    };
+    // and other properties
 }
+
 
 const mgr1 = new Manager("Danish", "danish@gmail.gov", "danisheng");
 
